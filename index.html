@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Modern</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="weather-app">
+            <!-- Header -->
+            <div class="header">
+                <h1><i class="fas fa-cloud-sun"></i> Weather App</h1>
+                <div class="search-container">
+                    <input type="text" id="cityInput" placeholder="Enter city name..." class="search-input">
+                    <button id="searchBtn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button id="locationBtn" class="location-btn" title="Use my location">
+                        <i class="fas fa-location-arrow"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Loading weather data...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error hidden">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p id="errorMessage">City not found. Please try again.</p>
+            </div>
+
+            <!-- Main Weather Display -->
+            <div id="weatherDisplay" class="weather-display hidden">
+                <!-- Current Weather -->
+                <div class="current-weather">
+                    <div class="location-info">
+                        <h2 id="cityName">City Name</h2>
+                        <p id="countryName">Country</p>
+                        <p id="dateTime">Date & Time</p>
+                    </div>
+                    
+                    <div class="weather-main">
+                        <div class="temperature">
+                            <span id="temperature">25</span>°C
+                        </div>
+                        <div class="weather-icon">
+                            <img id="weatherIcon" src="" alt="Weather">
+                        </div>
+                        <div class="weather-desc">
+                            <p id="weatherDescription">Clear Sky</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather Details -->
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <i class="fas fa-thermometer-half"></i>
+                        <div class="detail-info">
+                            <span class="label">Feels Like</span>
+                            <span id="feelsLike" class="value">25°C</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <i class="fas fa-tint"></i>
+                        <div class="detail-info">
+                            <span class="label">Humidity</span>
+                            <span id="humidity" class="value">65%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <i class="fas fa-wind"></i>
+                        <div class="detail-info">
+                            <span class="label">Wind Speed</span>
+                            <span id="windSpeed" class="value">5.2 km/h</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <i class="fas fa-compress-alt"></i>
+                        <div class="detail-info">
+                            <span class="label">Pressure</span>
+                            <span id="pressure" class="value">1013 hPa</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <i class="fas fa-eye"></i>
+                        <div class="detail-info">
+                            <span class="label">Visibility</span>
+                            <span id="visibility" class="value">10 km</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <i class="fas fa-sun"></i>
+                        <div class="detail-info">
+                            <span class="label">UV Index</span>
+                            <span id="uvIndex" class="value">5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temperature Range -->
+                <div class="temp-range">
+                    <div class="temp-min">
+                        <i class="fas fa-arrow-down"></i>
+                        <span id="tempMin">20°C</span>
+                    </div>
+                    <div class="temp-max">
+                        <i class="fas fa-arrow-up"></i>
+                        <span id="tempMax">30°C</span>
+                    </div>
+                </div>
+
+                <!-- Unit Toggle -->
+                <div class="unit-toggle">
+                    <button id="celsiusBtn" class="unit-btn active">°C</button>
+                    <button id="fahrenheitBtn" class="unit-btn">°F</button>
+                </div>
+            </div>
+
+            <!-- Recent Searches -->
+            <div id="recentSearches" class="recent-searches hidden">
+                <h3>Recent Searches</h3>
+                <div id="recentList" class="recent-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
